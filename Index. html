@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Molo.dev — Developer & Designer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body class="loading">
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-m">M</div>
+      <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+      <div class="loader-text" id="loaderText">Loading...</div>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-m">M</span><span class="logo-text">olo.dev</span>
+    </div>
+    <div class="nav-center">
+      <a href="#hero"     class="nav-link active" data-section="hero">Home</a>
+      <a href="#about"    class="nav-link" data-section="about">About</a>
+      <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+      <a href="#services" class="nav-link" data-section="services">Services</a>
+      <a href="#contact"  class="nav-link" data-section="contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://discord.com/users/molokix" target="_blank" class="nav-cta">Hire Me ↗</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hero"     class="mob-link">Home</a>
+    <a href="#about"    class="mob-link">About</a>
+    <a href="#projects" class="mob-link">Projects</a>
+    <a href="#services" class="mob-link">Services</a>
+    <a href="#contact"  class="mob-link">Contact</a>
+  </div>
+
+  <!-- SIDE DOTS NAVIGATOR -->
+  <div class="side-dots" id="sideDots">
+    <div class="side-dot active" data-target="hero"></div>
+    <div class="side-dot" data-target="about"></div>
+    <div class="side-dot" data-target="projects"></div>
+    <div class="side-dot" data-target="services"></div>
+    <div class="side-dot" data-target="contact"></div>
+  </div>
+
+  <!-- SOCIAL SIDEBAR -->
+  <div class="social-sidebar">
+    <a href="https://discord.com/users/molokix" target="_blank" class="social-link" title="Discord">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.055a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+    </a>
+    <a href="#" class="social-link" title="Instagram">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <div class="social-line"></div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <canvas id="heroCanvas" class="hero-canvas"></canvas>
+    <div class="noise"></div>
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-blob blob3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Available for work — متاح للعمل
+      </div>
+      <h1 class="hero-title">
+        <span class="line t1">Hello, I'm</span>
+        <span class="line t2 accent glitch" data-text="Molo.">Molo.</span>
+      </h1>
+      <p class="hero-sub reveal">
+        مطور ومصمم متعدد المواهب من تونس 🇹🇳<br/>
+        I build <span class="typed" id="typed"></span>
+      </p>
+      <div class="hero-btns reveal">
+        <a href="#about" class="btn-primary" id="whoBtn">
+          من أنا؟ / Who am I?
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#projects" class="btn-outline">View Work</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll reveal">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+
+    <div class="float-card fc1 reveal">
+      <div class="fc-icon">⚡</div>
+      <div><div class="fc-title">Fast Delivery</div><div class="fc-sub">تسليم سريع</div></div>
+    </div>
+    <div class="float-card fc2 reveal">
+      <div class="fc-icon">🛡️</div>
+      <div><div class="fc-title">Clean Code</div><div class="fc-sub">كود نظيف</div></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Discord Bots</span><span class="msep">✦</span>
+      <span>Websites</span><span class="msep">✦</span>
+      <span>MC Servers</span><span class="msep">✦</span>
+      <span>Apps</span><span class="msep">✦</span>
+      <span>UI/UX Design</span><span class="msep">✦</span>
+      <span>Full Stack</span><span class="msep">✦</span>
+      <span>Discord Bots</span><span class="msep">✦</span>
+      <span>Websites</span><span class="msep">✦</span>
+      <span>MC Servers</span><span class="msep">✦</span>
+      <span>Apps</span><span class="msep">✦</span>
+      <span>UI/UX Design</span><span class="msep">✦</span>
+      <span>Full Stack</span><span class="msep">✦</span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-label reveal">01 — About</div>
+      <h2 class="section-title reveal">فاروق — <span class="accent">Molo</span></h2>
+      <div class="about-grid">
+        <div class="about-left reveal">
+          <div class="about-img-wrap">
+            <div class="about-avatar"><div class="avatar-m">M</div></div>
+            <div class="about-badge-tl">🇹🇳 Tunisia</div>
+            <div class="about-badge-br">Since 2020</div>
+          </div>
+        </div>
+        <div class="about-right">
+          <p class="about-text reveal">
+            مطور ومصمم عمره <strong>16 سنة</strong> من <strong>تونس</strong>، بدأ مسيرته البرمجية منذ <strong>2020</strong>. متخصص في بناء تجارب رقمية استثنائية — من بوتات الديسكورد وسيرفرات الماين كرافت إلى المواقع والتطبيقات الكاملة.
+          </p>
+          <p class="about-text reveal">
+            A <strong>multi-talented developer & designer</strong> from Tunisia, coding since <strong>2020</strong>. Building exceptional digital experiences across all platforms and technologies.
+          </p>
+          <div class="skills-grid reveal">
+            <div class="skill-chip">Discord Bots</div>
+            <div class="skill-chip">Web Dev</div>
+            <div class="skill-chip">MC Servers</div>
+            <div class="skill-chip">Mobile Apps</div>
+            <div class="skill-chip">UI/UX Design</div>
+            <div class="skill-chip">Full Stack</div>
+            <div class="skill-chip">Node.js</div>
+            <div class="skill-chip">Python</div>
+          </div>
+          <div class="stats-row reveal">
+            <div class="stat">
+              <div class="stat-num" data-target="5">0</div>
+              <div class="stat-label">Years</div>
+            </div>
+            <div class="stat-div"></div>
+            <div class="stat">
+              <div class="stat-num" data-target="50">0</div>
+              <div class="stat-label">Projects+</div>
+            </div>
+            <div class="stat-div"></div>
+            <div class="stat">
+              <div class="stat-num" data-target="100">0</div>
+              <div class="stat-label">% Passion</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-label reveal">02 — Projects</div>
+      <h2 class="section-title reveal">What I've <span class="accent">Built</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-glow"></div>
+          <div class="project-top">
+            <span class="project-num">01</span>
+            <span class="project-status">✓ Done</span>
+          </div>
+          <h3>Minecraft Server + Website</h3>
+          <p>سيرفر ماين كرافت متكامل مع موقع خاص وبوت ديسكورد للإدارة الكاملة.<br/>Full MC ecosystem with website & Discord bot.</p>
+          <div class="project-tags">
+            <span>Java</span><span>HTML/CSS</span><span>Discord.js</span><span>Node.js</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-glow"></div>
+          <div class="project-top">
+            <span class="project-num">02</span>
+            <span class="project-status">✓ Done</span>
+          </div>
+          <h3>Full Shop Website</h3>
+          <p>موقع شوب متكامل مع طلبات ودفع وإدارة منتجات.<br/>Complete e-commerce with orders, payments & management.</p>
+          <div class="project-tags">
+            <span>Node.js</span><span>CSS</span><span>Database</span><span>UI/UX</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-glow"></div>
+          <div class="project-top">
+            <span class="project-num">03</span>
+            <span class="project-status">✓ Done</span>
+          </div>
+          <h3>Discord-like App</h3>
+          <p>تطبيق تواصل مع غرف صوتية ونصية في الوقت الفعلي.<br/>Real-time communication app with voice & text channels.</p>
+          <div class="project-tags">
+            <span>WebSockets</span><span>JS</span><span>UI Design</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-label reveal">03 — Services</div>
+      <h2 class="section-title reveal">ما أقدمه / <span class="accent">What I Offer</span></h2>
+      <div class="services-grid">
+        <div class="service-card reveal"><div class="srv-num">01</div><div class="srv-emoji">🤖</div><h3>Discord Bots</h3><p>بوتات مخصصة بجميع الميزات — إدارة، ترفيه، اقتصاد وأكثر</p></div>
+        <div class="service-card reveal"><div class="srv-num">02</div><div class="srv-emoji">🌐</div><h3>Websites</h3><p>مواقع احترافية — landing pages, shops, portfolios, dashboards</p></div>
+        <div class="service-card reveal"><div class="srv-num">03</div><div class="srv-emoji">🎮</div><h3>MC Servers</h3><p>سيرفرات متكاملة مع plugins مخصصة وموقع وبوت إدارة</p></div>
+        <div class="service-card reveal"><div class="srv-num">04</div><div class="srv-emoji">📱</div><h3>Apps</h3><p>تطبيقات ويب وموبايل مخصصة بالكامل حسب احتياجك</p></div>
+        <div class="service-card reveal"><div class="srv-num">05</div><div class="srv-emoji">🎨</div><h3>UI/UX Design</h3><p>تصاميم احترافية تجمع الجمال والوظيفة معاً</p></div>
+        <div class="service-card cta-card reveal">
+          <div class="srv-emoji">✨</div>
+          <h3>Custom Project?</h3>
+          <p>عندك فكرة؟ تواصل معي وأبنيها لك</p>
+          <a href="#contact" class="btn-primary small">Let's Talk →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <div class="section-label reveal">04 — Contact</div>
+      <h2 class="section-title reveal">Let's Build <span class="accent">Together</span></h2>
+      <p class="contact-sub reveal">جاهز تبدأ مشروعك؟ راسلني وأبدأ العمل خلال ساعات</p>
+      <div class="contact-cards reveal">
+        <a href="https://discord.com/users/molokix" target="_blank" class="contact-card discord-card">
+          <div class="cc-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.055a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          </div>
+          <div><div class="cc-platform">Discord</div><div class="cc-handle">molokix</div></div>
+          <div class="cc-arrow">↗</div>
+        </a>
+        <a href="#" class="contact-card insta-card">
+          <div class="cc-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          <div><div class="cc-platform">Instagram</div><div class="cc-handle">@molo</div></div>
+          <div class="cc-arrow">↗</div>
+        </a>
+      </div>
+      <div class="footer reveal">
+        <div class="footer-logo">M</div>
+        <div class="footer-note">© 2025 Molo.dev — Built with passion from Tunisia 🇹🇳</div>
+        <a href="#hero" class="footer-top">Back to top ↑</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
